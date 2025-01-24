@@ -23,3 +23,8 @@ func (repo *MySQLRepository) GetAll() ([]entities.Product, error) {
 	result := core.BD.Find(&products)
 	return products, result.Error
 }
+
+func (repo *MySQLRepository) Delete(id int32) error {
+	result := core.BD.Where ("id_product = ?", id).Delete(&entities.Product{})
+    return result.Error
+}
