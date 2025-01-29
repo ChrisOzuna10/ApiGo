@@ -1,6 +1,6 @@
 package domain
 
-import "api/src/domain/entities"
+import "api/src/products/domain/entities"
 
 type IProduct interface {
 	Save(name string, price float32) error

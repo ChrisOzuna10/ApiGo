@@ -2,19 +2,24 @@ package main
 
 import (
 	"api/src/core"
-	"api/src/infrastructure"
-	"github.com/gin-gonic/gin"
+	"api/src/musics/infrastructure_music"
+	"api/src/products/infrastructure"
+
 	"log"
+
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
 	core.ConnectToDataBase()
 
-	productRepo := infrastructure.NewMySQLRepository()
+	musicRepo := infrastructuremusic.NewMySQLRepositoryMusics()
+	productRepo := infrastructure.NewMySQLRepositoryProducts()
 
 	router := gin.Default()
 
 	infrastructure.SetupProductRoutes(router, productRepo)
+	infrastructuremusic.SetupMusicRoutes(router, musicRepo)
 
 	log.Println("Iniciando el Servidor en el puerto 8080...")
 

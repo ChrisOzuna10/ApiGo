@@ -1,7 +1,7 @@
 package infrastructure
 
 import (
-	"api/src/domain"
+	"api/src/products/domain"
 	"net/http"
 	"github.com/gin-gonic/gin"
 )

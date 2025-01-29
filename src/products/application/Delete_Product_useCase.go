@@ -1,7 +1,7 @@
 package application
 
 import (
-    "api/src/domain"
+    "api/src/products/domain"
 )
 
 type DeleteProduct struct {

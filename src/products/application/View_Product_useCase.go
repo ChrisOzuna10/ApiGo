@@ -1,8 +1,8 @@
 package application
 
 import (
-	"api/src/domain"
-    "api/src/domain/entities"
+	"api/src/products/domain"
+    "api/src/products/domain/entities"
 )
 
 type ViewProduct struct {

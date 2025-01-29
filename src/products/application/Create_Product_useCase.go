@@ -1,6 +1,6 @@
 package application
 
-import "api/src/domain"
+import "api/src/products/domain"
 
 type CreateProduct struct {
 	db domain.IProduct
