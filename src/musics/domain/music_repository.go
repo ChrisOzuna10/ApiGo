@@ -3,7 +3,8 @@ package domain
 import "api/src/musics/domain/entities"
 
 type IMusic interface {
-    Save(tittle string, gender string) error
-    GetAll() ([]entities.Music, error)
-    Delete(id int32) error
+	Save(title string, gender string) error
+	GetAll() ([]entities.Music, error)
+	Delete(id int32) error
+	Update(id int32, title string, genre string) error
 }

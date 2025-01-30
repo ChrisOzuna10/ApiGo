@@ -1,6 +1,6 @@
 package application
 
-import( 
+import (
 	"api/src/musics/domain"
 	"api/src/musics/domain/entities"
 )
@@ -10,9 +10,9 @@ type ViewMusic struct {
 }
 
 func NewViewMusic(db domain.IMusic) *ViewMusic {
-    return &ViewMusic{db: db}
+	return &ViewMusic{db: db}
 }
 
 func (vp *ViewMusic) Execute() ([]entities.Music, error) {
-    return vp.db.GetAll()
+	return vp.db.GetAll()
 }

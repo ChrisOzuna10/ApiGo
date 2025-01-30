@@ -1,4 +1,4 @@
-package infrastructuremusic
+package infrastructurem
 
 import (
 	"api/src/core"
@@ -19,11 +19,17 @@ func (repo *MySQLRepositoryMusics) Save(title string, gender string) error {
 }
 func (repo *MySQLRepositoryMusics) GetAll() ([]entities.Music, error) {
 	var musics []entities.Music
-    result := core.BD.Find(&musics)
-    return musics, result.Error
+	result := core.BD.Find(&musics)
+	return musics, result.Error
 }
 
 func (repo *MySQLRepositoryMusics) Delete(id int32) error {
 	result := core.BD.Where("id_music = ?", id).Delete(&entities.Music{})
+	return result.Error
+}
+
+func (repo *MySQLRepositoryMusics) Update(id int32, title string, gender string) error {
+	result := core.BD.Model(&entities.Music{}).Where("id_music = ?", id).
+		Updates(entities.Music{Title: title, Gender: gender})
 	return result.Error
 }

@@ -6,15 +6,15 @@ import (
 	"api/src/products/domain/entities"
 )
 
-type MySQLRepositoryProducts struct {}
+type MySQLRepositoryProducts struct{}
 
 func NewMySQLRepositoryProducts() domain.IProduct {
-    return &MySQLRepositoryProducts{}
+	return &MySQLRepositoryProducts{}
 }
 
 func (repo *MySQLRepositoryProducts) Save(name string, price float32) error {
 	product := entities.Product{Name: name, Price: price}
-	result:= core.BD.Create(&product)
+	result := core.BD.Create(&product)
 	return result.Error
 }
 
@@ -25,6 +25,12 @@ func (repo *MySQLRepositoryProducts) GetAll() ([]entities.Product, error) {
 }
 
 func (repo *MySQLRepositoryProducts) Delete(id int32) error {
-	result := core.BD.Where ("id_product = ?", id).Delete(&entities.Product{})
-    return result.Error
+	result := core.BD.Where("id_product = ?", id).Delete(&entities.Product{})
+	return result.Error
+}
+
+func (repo *MySQLRepositoryProducts) Update(id int32, name string, price float32) error {
+	result := core.BD.Model(&entities.Product{}).Where("id_product = ?", id).
+		Updates(entities.Product{Name: name, Price: price})
+	return result.Error
 }

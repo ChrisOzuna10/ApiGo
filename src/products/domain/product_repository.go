@@ -6,4 +6,5 @@ type IProduct interface {
 	Save(name string, price float32) error
 	GetAll() ([]entities.Product, error)
 	Delete(id int32) error
+	Update(id int32, name string, price float32) error
 }
