@@ -1,16 +1,16 @@
-package infrastructurem
+package controllersm
 
 import (
-	"api/src/musics/application"
+	"api/src/musics/application/useCaseMusic"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
 
 type AgregateMusicController struct {
-	useCase *application.AgregateMusic
+	useCase *useCaseMusic.AgregateMusic
 }
 
-func NewAgregateMusicController(useCase *application.AgregateMusic) *AgregateMusicController {
+func NewAgregateMusicController(useCase *useCaseMusic.AgregateMusic) *AgregateMusicController {
 	return &AgregateMusicController{useCase: useCase}
 }
 

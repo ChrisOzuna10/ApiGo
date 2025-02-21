@@ -1,7 +1,7 @@
-package infrastructure
+package controllers
 
 import (
-	"api/src/products/application"
+	"api/src/products/application/useCaseProduct"
 	"net/http"
 	"strconv"
 
@@ -9,10 +9,10 @@ import (
 )
 
 type DeleteProductController struct {
-	useCase *application.DeleteProduct
+	useCase *useCaseProduct.DeleteProduct
 }
 
-func NewDeleteProductController(useCase *application.DeleteProduct) *DeleteProductController {
+func NewDeleteProductController(useCase *useCaseProduct.DeleteProduct) *DeleteProductController {
 	return &DeleteProductController{useCase: useCase}
 }
 

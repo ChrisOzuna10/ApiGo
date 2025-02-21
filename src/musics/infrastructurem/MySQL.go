@@ -4,6 +4,7 @@ import (
 	"api/src/core"
 	"api/src/musics/domain"
 	"api/src/musics/domain/entities"
+	"fmt"
 )
 
 type MySQLRepositoryMusics struct{}
@@ -32,4 +33,18 @@ func (repo *MySQLRepositoryMusics) Update(id int32, title string, gender string)
 	result := core.BD.Model(&entities.Music{}).Where("id_music = ?", id).
 		Updates(entities.Music{Title: title, Gender: gender})
 	return result.Error
+}
+
+func (repo *MySQLRepositoryMusics) GetById(id int32) (*entities.Music, error) {
+	var music entities.Music
+	result := core.BD.First(&music, "id_music = ?", id)
+	if result.Error != nil {
+		return nil, result.Error
+	}
+	if result.RowsAffected == 0 {
+		fmt.Println("No se encontro ninguna musica con id", id)
+		return nil, fmt.Errorf("Musica no encontrada")
+	}
+	fmt.Println("Musica encontrada correctamente", music)
+	return &music, nil
 }

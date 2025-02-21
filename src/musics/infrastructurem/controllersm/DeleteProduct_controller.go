@@ -1,7 +1,7 @@
-package infrastructurem
+package controllersm
 
 import (
-	"api/src/musics/application"
+	"api/src/musics/application/useCaseMusic"
 	"net/http"
 	"strconv"
 
@@ -9,10 +9,10 @@ import (
 )
 
 type DeleteMusicController struct {
-	useCase *application.DeleteMusic
+	useCase *useCaseMusic.DeleteMusic
 }
 
-func NewDeleteMusicController(useCase *application.DeleteMusic) *DeleteMusicController {
+func NewDeleteMusicController(useCase *useCaseMusic.DeleteMusic) *DeleteMusicController {
 	return &DeleteMusicController{useCase: useCase}
 }
 

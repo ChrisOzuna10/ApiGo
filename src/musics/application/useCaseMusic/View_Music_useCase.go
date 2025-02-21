@@ -1,4 +1,4 @@
-package application
+package useCaseMusic
 
 import (
 	"api/src/musics/domain"

@@ -1,11 +1,11 @@
-package application
+package useCaseMusic
 
 import (
-    "api/src/musics/domain"
+	"api/src/musics/domain"
 )
 
 type DeleteMusic struct {
-	db  domain.IMusic
+	db domain.IMusic
 }
 
 func NewDeleteMusic(db domain.IMusic) *DeleteMusic {

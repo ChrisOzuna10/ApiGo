@@ -1,4 +1,4 @@
-package application
+package useCaseProduct
 
 import "api/src/products/domain"
 
@@ -7,7 +7,7 @@ type CreateProduct struct {
 }
 
 func NewCreateProduct(db domain.IProduct) *CreateProduct {
-    return &CreateProduct{db: db}
+	return &CreateProduct{db: db}
 }
 
 func (cp *CreateProduct) Execute(name string, price float32) error {

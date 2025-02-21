@@ -1,8 +1,8 @@
-package application
+package useCaseProduct
 
 import (
 	"api/src/products/domain"
-    "api/src/products/domain/entities"
+	"api/src/products/domain/entities"
 )
 
 type ViewProduct struct {
@@ -10,9 +10,9 @@ type ViewProduct struct {
 }
 
 func NewViewProduct(db domain.IProduct) *ViewProduct {
-    return &ViewProduct{db: db}
+	return &ViewProduct{db: db}
 }
 
 func (vp *ViewProduct) Execute() ([]entities.Product, error) {
-    return vp.db.GetAll()
+	return vp.db.GetAll()
 }

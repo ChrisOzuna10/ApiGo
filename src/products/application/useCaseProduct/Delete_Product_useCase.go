@@ -1,11 +1,11 @@
-package application
+package useCaseProduct
 
 import (
-    "api/src/products/domain"
+	"api/src/products/domain"
 )
 
 type DeleteProduct struct {
-    db domain.IProduct
+	db domain.IProduct
 }
 
 func NewDeleteProduct(db domain.IProduct) *DeleteProduct {
@@ -13,5 +13,5 @@ func NewDeleteProduct(db domain.IProduct) *DeleteProduct {
 }
 
 func (dp *DeleteProduct) Execute(id int32) error {
-    return dp.db.Delete(id)
+	return dp.db.Delete(id)
 }

@@ -1,4 +1,4 @@
-package application
+package useCaseProduct
 
 import (
 	"api/src/products/domain"
